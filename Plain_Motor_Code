@@ -1,0 +1,25 @@
+// Motor A pins
+const int IN1 = 3;  
+const int IN2 = 5; 
+
+// Motor B pins
+const int IN3 = 9;   
+const int IN4 = 10; 
+
+void setup() {
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+
+  digitalWrite(IN2, HIGH);  
+  digitalWrite(IN4, LOW);  //Motor B is reversed for some reason
+}
+
+void loop() {
+  int halfSpeed = 128; // 0–255
+
+  analogWrite(IN1, halfSpeed);
+  analogWrite(IN3, halfSpeed);
+}
