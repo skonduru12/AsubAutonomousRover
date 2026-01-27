@@ -1,0 +1,65 @@
+// Motor A pins
+const int IN1 = 3;  
+const int IN2 = 5; 
+const int trigPin = 6;
+const int echoPin = 11;
+
+long duration;
+float distanceCm;
+
+// Motor B pins
+const int IN3 = 9;   
+const int IN4 = 10; 
+
+void setup() {
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);  
+  digitalWrite(IN4, LOW);  //Motor B is reversed for some reason
+  digitalWrite(IN3, HIGH);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
+}
+
+
+void loop() {
+  int halfSpeed = 50; // 0–255
+
+  digitalWrite(trigPin, LOW); 
+  delayMicroseconds(2);
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+
+  distanceCm = duration * 0.034 / 2;
+
+  Serial.print("Distance: ");
+  Serial.print(distanceCm);
+  Serial.println(" cm");
+
+  if (distanceCM >= 23){
+    analogWrite(IN1, halfSpeed);
+    analogWrite(IN3, halfSpeed);
+  }
+
+  else (distanceCM >)
+}
+
+
+
+
+
+
+void loop() {
+  
+
+  delay(500);
+}
