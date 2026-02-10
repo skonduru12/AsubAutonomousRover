@@ -1,0 +1,35 @@
+// ===== Motor A pins =====
+const int ENA = 11;   // PWM pin
+const int IN1 = 6;
+const int IN2 = 7;
+
+// ===== Motor B pins =====
+const int ENB = 10;   // PWM pin
+const int IN3 = 8;
+const int IN4 = 9;
+
+void setup() {
+  pinMode(ENA, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+
+  pinMode(ENB, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+
+  // Motor A forward
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+
+  // Motor B forward
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+void loop() {
+  int speedA = 50;   // 0–255
+  int speedB = 50;   // 0–255
+
+  analogWrite(ENA, speedA);
+  analogWrite(ENB, speedB);
+}
